@@ -7,16 +7,36 @@ export default class Navbar extends Component {
     state = {
         isOpen: false,
     };
-    handleToggle = () => {
-        this.setState((prev) => {
-            return {
-                isOpen: !prev.isOpen,
-            };
-        });
+    handleOutsideClick = (e) => {
+        // ignore clicks on the component itself
+        console.log(e.target);
+        if (this.node.contains(e.target)) {
+            return;
+        } else {
+            this.handleToggle();
+        }
     };
+    handleToggle = () => {
+        if (!this.state.isOpen) {
+            // attach/remove event handler
+            document.addEventListener("click", this.handleOutsideClick);
+        } else {
+            document.removeEventListener("click", this.handleOutsideClick);
+        }
+
+        this.setState((prevState) => ({
+            isOpen: !prevState.isOpen,
+        }));
+    };
+
     render() {
         return (
-            <nav className="navbar">
+            <nav
+                className="navbar"
+                ref={(node) => {
+                    this.node = node;
+                }}
+            >
                 <div className="nav-center">
                     <div className="nav-header">
                         <Link to="/">
