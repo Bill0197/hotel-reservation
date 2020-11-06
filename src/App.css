@@ -70,8 +70,8 @@ h6 {
     background: transparent;
     color: #ad926e;
 }
-.btn-primary:active{
- border: 3px solid #978368;
+.btn-primary:active {
+    border: 3px solid #978368;
     color: #978368;
 }
 .loading {
@@ -189,7 +189,7 @@ h6 {
     text-align: center;
     text-transform: capitalize;
     letter-spacing: var(--mainSpacing);
-    border-radius: 14px;;
+    border-radius: 14px;
 }
 .banner h1 {
     font-size: 2.5rem;
@@ -255,7 +255,6 @@ h6 {
     grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
     grid-row-gap: 2rem;
     grid-column-gap: 50px;
-    
 }
 .service span {
     display: inline-block;
@@ -263,17 +262,14 @@ h6 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     text-transform: capitalize;
-
 }
 .services h6 {
     letter-spacing: var(--mainSpacing);
     text-transform: capitalize;
-
 }
 .services p {
     width: 80%;
     margin: 0 auto;
-
 }
 @media screen and (min-width: 992px) {
     .services-center {
@@ -298,7 +294,7 @@ h6 {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    grid-row-gap: 2rem;     
+    grid-row-gap: 2rem;
     grid-column-gap: 40px;
 }
 @media screen and (min-width: 776px) {

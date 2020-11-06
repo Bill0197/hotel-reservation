@@ -6,15 +6,15 @@ import { withRoomConsumer } from "../context";
 
 const RoomsContainer = ({ context }) => {
     const { loading, sortedRooms, rooms } = context;
+    console.log(loading, sortedRooms, rooms);
     if (loading) {
         return <Loading />;
     }
     return (
-        <div>
-            hello from roomscontainre
+        <>
             <RoomsFilter rooms={rooms} />
             <RoomsList rooms={sortedRooms} />
-        </div>
+        </>
     );
 };
 

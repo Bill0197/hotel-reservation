@@ -91,12 +91,16 @@ class RoomProvider extends Component {
         );
     }
 }
+
 const RoomConsumer = RoomContext.Consumer;
 
-export function withRoomConsumer(Component) {
+function withRoomConsumer(Component) {
     return function ConsumerWrapper(props) {
-        return (value) => <Component {...props} context={value} />;
+        return (
+            <RoomConsumer>
+                {(value) => <Component {...props} context={value} />}
+            </RoomConsumer>
+        );
     };
 }
-
-export { RoomProvider, RoomConsumer, RoomContext };
+export { RoomProvider, RoomConsumer, RoomContext, withRoomConsumer };
