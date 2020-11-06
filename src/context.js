@@ -13,7 +13,7 @@ class RoomProvider extends Component {
         type: "all",
         minSize: 0,
         maxSize: 0,
-        price: 0,
+        price: 600,
         minPrice: 0,
         maxPrice: 0,
         breakfast: false,
@@ -70,11 +70,33 @@ class RoomProvider extends Component {
             minSize,
             maxSize,
             breakfast,
+            pets,
         } = this.state;
         let tempRooms = [...rooms];
+        capacity = Number(capacity);
+        price = Number(price);
         if (type !== "all") {
             tempRooms = rooms.filter((room) => room.type === type);
         }
+        if (capacity !== 1) {
+            tempRooms = rooms.filter((room) => room.capacity <= capacity);
+        }
+        if (price !== 600) {
+            tempRooms = rooms.filter((room) => room.price <= price);
+        }
+        if (minSize !== 0) {
+            tempRooms = rooms.filter((room) => room.minSize);
+        }
+        if (breakfast) {
+            tempRooms = rooms.filter((room) => room.breakfast);
+        }
+        if (pets) {
+            tempRooms = rooms.filter((room) => room.pets);
+        }
+        this.setState({
+            // ...this.state,
+            sortedRooms: tempRooms,
+        });
     };
 
     render() {
