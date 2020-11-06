@@ -58,7 +58,7 @@ class RoomProvider extends Component {
             {
                 [name]: value,
             },
-            this.filterRooms // we should call it to filter the rooms afte the state changes
+            this.filterRooms // we should call it to filter the rooms after the state changes
         );
     };
     filterRooms = () => {
@@ -95,9 +95,7 @@ const RoomConsumer = RoomContext.Consumer;
 
 export function withRoomConsumer(Component) {
     return function ConsumerWrapper(props) {
-        
-           return (value) => <Component {...props} context={value} />;
-        
+        return (value) => <Component {...props} context={value} />;
     };
 }
 
