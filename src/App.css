@@ -488,6 +488,9 @@ h6 {
 .form-group {
     text-transform: capitalize;
 }
+.gridding{
+    display: block;
+}
 .form-group label {
     display: block;
     letter-spacing: var(--mainSpacing);

@@ -103,7 +103,7 @@ export default function RoomsFilter({ rooms }) {
                             id="size"
                             value={minSize}
                             onChange={handleChange}
-                            className="size-inputs"
+                            className="size-input"
                         />
                         <input
                             type="number"
@@ -111,27 +111,14 @@ export default function RoomsFilter({ rooms }) {
                             id="size"
                             value={maxSize}
                             onChange={handleChange}
-                            className="size-inputs"
+                            className="size-input"
                         />
                     </div>
                 </div>
                 {/* end of size */}
-                {/* breakfast */}
-                <div className="form-grouP">
-                    <div className="single-extra">
-                        <input
-                            type="checkbox"
-                            name="breakfast"
-                            id="breakfast"
-                            checked={breakfast}
-                            onChange={handleChange}
-                        />
-                        <label htmlFor="breakfast">breakfast</label>
-                    </div>
-                </div>
-                {/* end of breakfast */}
+
                 {/* pets */}
-                <div className="form-grouP">
+                <div className="form-group ">
                     <div className="single-extra">
                         <input
                             type="checkbox"
@@ -139,8 +126,20 @@ export default function RoomsFilter({ rooms }) {
                             id="pets"
                             checked={pets}
                             onChange={handleChange}
+                            className="single-extra"
                         />
                         <label htmlFor="pets">pets</label>
+                    </div>
+                    <div className="single-extra">
+                        <input
+                            type="checkbox"
+                            name="breakfast"
+                            id="breakfast"
+                            checked={breakfast}
+                            onChange={handleChange}
+                            className="single-extra"
+                        />
+                        <label htmlFor="breakfast">breakfast</label>
                     </div>
                 </div>
                 {/* end of pets */}
