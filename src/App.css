@@ -235,6 +235,13 @@ h6 {
     .banner h1 {
         font-size: 3rem;
     }
+    #brandLogo {
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+    padding: 8px 10px 0 0;
+    white-space: nowrap;
+}
 }
 @media screen and (min-width: 992px) {
     .banner {
@@ -243,6 +250,13 @@ h6 {
     .banner h1 {
         font-size: 4rem;
     }
+    #brandLogo {
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+    padding: 8px 10px 0 0;
+    white-space: nowrap;
+}
 }
 /* End of Banner */
 /* Title */
