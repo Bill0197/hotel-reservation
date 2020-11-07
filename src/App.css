@@ -52,7 +52,15 @@ h6 {
     font-weight: bold;
     margin-bottom: 1.5em;
 }
-
+a:not(:disabled):active {
+    color: #9b8971;
+}
+a:not(:disabled):focus {
+    color: #9b8971;
+}
+.checkedClass {
+    color: #9b8971;
+}
 .btn-primary {
     display: inline-block;
     outline: none;
@@ -102,8 +110,8 @@ h6 {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0.65rem 2rem 0.01rem 2rem;
-    padding-bottom: -10px;
+    padding: 0.65rem 2rem 0.41rem 2rem;
+    /* padding-bottom: -10px; */
     background: var(--offWhite);
     z-index: 1;
 }
@@ -119,11 +127,13 @@ h6 {
 }
 .nav-icon:hover {
     font-size: 1.556rem;
+    font-size: 1.566rem;
 }
 .nav-icon:active {
     color: #9b8971;
 }
 .nav-icon {
+    margin-top: -10px;
     font-size: 1.5rem;
     color: var(--primaryColor);
 }
@@ -172,7 +182,7 @@ h6 {
     }
     .nav-links a {
         margin: 0 1rem;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0.5rem;
     }
 }
 /* end of navbar */
@@ -180,7 +190,7 @@ h6 {
 .defaultHero,
 .roomsHero {
     min-height: calc(100vh - 66px);
-    background: url("./images/hotel-1362425_1920.jpg") center/cover no-repeat;
+    background: url("./images/hotelmain.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -192,8 +202,8 @@ h6 {
 /* End of Hero */
 #brandLogo {
     text-decoration: none;
-    color: #222;
-    font-size: 18px;
+    color: rgb(80, 11, 53);
+    font-size: 22px;
     padding: 8px 10px 0 0;
     white-space: nowrap;
 }
@@ -203,19 +213,34 @@ h6 {
 #brandLogo:active {
     color: #9b8971;
 }
+#brandLogo:not(:disabled):active {
+    color: #9b8971;
+}
+#brandLogo:not(:disabled):focus {
+    color: #9b8971;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
 /* Banner */
 .banner {
+    width: 100vw;
+    margin: 10vw;
     display: inline-block;
     background: rgba(0, 0, 0, 0.4);
     color: var(--mainWhite);
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     text-align: center;
     text-transform: capitalize;
     letter-spacing: var(--mainSpacing);
-    border-radius: 280px 1px;
+    border-radius: 260px 1px;
 }
 .banner h1 {
     padding: 2rem 0 0 2rem;
+    margin: 5px;
     font-size: 2.5rem;
 }
 .banner div {
@@ -228,35 +253,80 @@ h6 {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
+
+@media screen and (max-width: 300px) {
+    .banner {
+        width: 100vw;
+        padding: 0;
+        margin: 45px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner {
+        border-radius: 100px 0;
+        padding: 10px;
+        margin: 45px;
+        margin: 10vw;
+    }
+    .banner h1 {
+        font-size: 2rem;
+        text-align: center;
+        padding-left: 10px;
+    }
+    .banner p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    .banner button {
+        margin-bottom: 1.3rem;
+    }
+    #brandLogo {
+        text-decoration: none;
+        color: #222;
+        font-size: 14px;
+        padding: 10px 10px 8px 0;
+        white-space: nowrap;
+        margin-top: 1px;
+    }
+}
+
 @media screen and (min-width: 576px) {
     .banner {
-        padding: 2rem 3rem;
+        padding: 1rem;
+        border-radius: 180px 1px;
+        margin: 10vw;
     }
     .banner h1 {
         font-size: 3rem;
     }
     #brandLogo {
-    text-decoration: none;
-    color: #222;
-    font-size: 18px;
-    padding: 8px 10px 0 0;
-    white-space: nowrap;
-}
+        text-decoration: none;
+        /* color: #222; */
+        font-size: 14px;
+        padding: 8px 10px 0 0;
+        white-space: nowrap;
+    }
 }
 @media screen and (min-width: 992px) {
     .banner {
-        padding: 2rem 6rem;
+        padding: 1rem;
+        border-radius: 200px 1px;
+        margin: 10vw;
     }
     .banner h1 {
         font-size: 4rem;
     }
     #brandLogo {
-    text-decoration: none;
-    color: #222;
-    font-size: 18px;
-    padding: 8px 10px 0 0;
-    white-space: nowrap;
-}
+        text-decoration: none;
+        /* color: #222; */
+        font-size: 14px;
+        padding: 8px 10px 0 0;
+        white-space: nowrap;
+    }
 }
 /* End of Banner */
 /* Title */

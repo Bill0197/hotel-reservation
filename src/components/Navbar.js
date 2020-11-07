@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { matchPath, withRouter } from "react-router";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
     state = {
         isOpen: false,
     };
+
     handleOutsideClick = (e) => {
         // ignore clicks on the component itself
         if (this.node.contains(e.target)) {
@@ -26,8 +28,8 @@ export default class Navbar extends Component {
             isOpen: !prevState.isOpen,
         }));
     };
-
     render() {
+        console.log(this.props.location.pathname);
         return (
             <nav
                 className="navbar"
@@ -56,16 +58,69 @@ export default class Navbar extends Component {
                         }
                     >
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link
+                                to="/"
+                                style={{
+                                    color:
+                                        this.props.match.isExact &&
+                                        this.props.location.pathname === "/"
+                                            ? " #9b8971"
+                                            : "",
+                                }}
+                            >
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/rooms">Rooms</Link>
+                            <Link
+                                to="/rooms"
+                                style={{
+                                    color: matchPath(
+                                        this.props.location.pathname,
+                                        {
+                                            path: "/rooms",
+                                        }
+                                    )
+                                        ? " #9b8971"
+                                        : "",
+                                }}
+                            >
+                                Rooms
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/services">Services</Link>
+                            <Link
+                                to="/services"
+                                style={{
+                                    color: matchPath(
+                                        this.props.location.pathname,
+                                        {
+                                            path: "/services",
+                                        }
+                                    )
+                                        ? " #9b8971"
+                                        : "",
+                                }}
+                            >
+                                Services
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/featured-rooms">Featured </Link>
+                            <Link
+                                to="/featured-rooms"
+                                style={{
+                                    color: matchPath(
+                                        this.props.location.pathname,
+                                        {
+                                            path: "/featured-rooms",
+                                        }
+                                    )
+                                        ? " #9b8971"
+                                        : "",
+                                }}
+                            >
+                                Featured{" "}
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -73,3 +128,5 @@ export default class Navbar extends Component {
         );
     }
 }
+
+export default withRouter(Navbar);
