@@ -9,7 +9,7 @@ const getUnique = (items, value) => {
 
 export default function RoomsFilter({ rooms }) {
     const context = useContext(RoomContext);
-    const {
+    let {
         handleChange,
         type,
         capacity,
@@ -21,6 +21,11 @@ export default function RoomsFilter({ rooms }) {
         minSize,
         maxSize,
     } = context;
+
+    capacity = parseInt(capacity);
+    price = parseInt(price);
+    maxPrice = parseInt(maxPrice);
+    minPrice = parseInt(minPrice);
 
     // get unique types
     let types = getUnique(rooms, "type");
@@ -47,7 +52,7 @@ export default function RoomsFilter({ rooms }) {
 
     return (
         <section className="filter-container">
-            <Title title="search rooms" />
+            <Title title="filter rooms" />
             <form className="filter-form">
                 {/*  type */}
                 <div className="form-group">

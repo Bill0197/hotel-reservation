@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import logo from "../images/logo.svg";
-import { FaAlignRight } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
@@ -9,7 +8,6 @@ export default class Navbar extends Component {
     };
     handleOutsideClick = (e) => {
         // ignore clicks on the component itself
-        console.log(e.target);
         if (this.node.contains(e.target)) {
             return;
         } else {
@@ -39,15 +37,15 @@ export default class Navbar extends Component {
             >
                 <div className="nav-center">
                     <div className="nav-header">
-                        <Link to="/">
-                            <img src={logo} alt="logo" />
+                        <Link id="brandLogo" to="/">
+                            <h4>Bill Hotel</h4>
                         </Link>
                         <button
                             onClick={this.handleToggle}
                             type="buttton"
                             className="nav-btn"
                         >
-                            <FaAlignRight className="nav-icon" />
+                            <FaBars className="nav-icon" />
                         </button>
                     </div>
                     <ul
@@ -62,6 +60,12 @@ export default class Navbar extends Component {
                         </li>
                         <li>
                             <Link to="/rooms">Rooms</Link>
+                        </li>
+                        <li>
+                            <Link to="/services">Services</Link>
+                        </li>
+                        <li>
+                            <Link to="/featured-rooms">Featured </Link>
                         </li>
                     </ul>
                 </div>

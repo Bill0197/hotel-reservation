@@ -13,7 +13,7 @@ class RoomProvider extends Component {
         type: "all",
         minSize: 0,
         maxSize: 0,
-        price: 600,
+        price: 0,
         minPrice: 0,
         maxPrice: 0,
         breakfast: false,
@@ -31,7 +31,8 @@ class RoomProvider extends Component {
             sortedRooms: rooms,
             loading: false,
             maxSize,
-            maxPrice,
+            maxPrice: maxPrice,
+            price: maxPrice,
         });
     }
     formatData = (items) => {
@@ -61,45 +62,50 @@ class RoomProvider extends Component {
             this.filterRooms // we should call it to filter the rooms after the state changes
         );
     };
+
     filterRooms = () => {
         let {
             rooms,
             type,
-            price,
             capacity,
+            price,
             minSize,
             maxSize,
             breakfast,
             pets,
         } = this.state;
+
         let tempRooms = [...rooms];
-        capacity = Number(capacity);
-        price = Number(price);
+        // transform values
+        // get capacity
+        capacity = parseInt(capacity);
+        price = parseInt(price);
+        // filter by type
         if (type !== "all") {
-            tempRooms = rooms.filter((room) => room.type === type);
+            tempRooms = tempRooms.filter((room) => room.type === type);
         }
+        // filter by capacity
         if (capacity !== 1) {
-            tempRooms = rooms.filter((room) => room.capacity <= capacity);
+            tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
         }
-        if (price !== 600) {
-            tempRooms = rooms.filter((room) => room.price <= price);
-        }
-        tempRooms = rooms.filter(
+        // filter by price
+        tempRooms = tempRooms.filter((room) => room.price <= price);
+        //filter by size
+        tempRooms = tempRooms.filter(
             (room) => room.size >= minSize && room.size <= maxSize
         );
-
+        //filter by breakfast
         if (breakfast) {
-            tempRooms = rooms.filter((room) => room.breakfast);
+            tempRooms = tempRooms.filter((room) => room.breakfast === true);
         }
+        //filter by pets
         if (pets) {
-            tempRooms = rooms.filter((room) => room.pets);
+            tempRooms = tempRooms.filter((room) => room.pets === true);
         }
         this.setState({
-            // ...this.state,
             sortedRooms: tempRooms,
         });
     };
-
     render() {
         return (
             <RoomContext.Provider

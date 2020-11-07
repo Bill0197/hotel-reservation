@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { RoomContext } from "../context";
+import React from "react";
 import Room from "../components/Room";
 
 export default function RoomsList({ rooms }) {
-    const context = useContext(RoomContext);
     if (rooms.length === 0) {
         return (
             <div className="empty-search">

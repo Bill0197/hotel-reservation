@@ -16,8 +16,6 @@ export default class SingleRoom extends Component {
     }
     static contextType = RoomContext;
 
-    // componentDidMount() {}
-
     render() {
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
@@ -55,7 +53,7 @@ export default class SingleRoom extends Component {
                 <section className="single-room">
                     <div className="single-room-images">
                         {defaultImgs.map((item, i) => (
-                            <img key={i} src={item} />
+                            <img key={i} src={item} alt="single room" />
                         ))}
                     </div>
                     <article className="single-room-info">
@@ -69,10 +67,9 @@ export default class SingleRoom extends Component {
                             <h6>size : {size} SQFT</h6>
                             <h6>Max Capacity: {capacity} people</h6>
                             <h6>
-                                
                                 {pets
-                                    ? "Pets  allowed"
-                                    : "No pets allowed"}
+                                    ? "Pets :  allowed"
+                                    : "Pets : Not Allowed"}
                             </h6>
                             {breakfast && <h6> free breakfast included</h6>}
                         </article>
