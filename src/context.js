@@ -54,7 +54,6 @@ class RoomProvider extends Component {
         const name = target.name;
         const value =
             target.type === "checkbox" ? target.checked : target.value;
-        const type = target.type;
         this.setState(
             {
                 [name]: value,
