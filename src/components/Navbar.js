@@ -29,7 +29,6 @@ class Navbar extends Component {
         }));
     };
     render() {
-        console.log(this.props.location.pathname);
         return (
             <nav
                 className="navbar"
